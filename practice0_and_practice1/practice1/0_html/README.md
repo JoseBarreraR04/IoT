@@ -1,0 +1,48 @@
+- Crear imagen
+    - sudo docker build -t my_website_image . 
+- Verificar la creacion de la imagen
+    - sudo docker images
+- Crear un contenedor
+    - sudo docker run -d -p 8080:80 --name my-running-app2 my_website_image
+- Verificar creacion del contenedor
+    - sudo docker ps -a
+- Verificar el sitio web en el navegador
+    - http://localhost:8080
+- Mirar logs
+    - sudo docker logs my-running-app2
+- Mirar logs en tiempo real (Hacer refresh en el navegador para ver los logs)
+    - sudo docker logs -f my-running-app2
+- Mirar stats (Ctrl-C para salir)
+    - sudo docker stats my-running-app2
+- Mirar top processes
+    - sudo docker top my-running-app2
+- Mirar port mapping
+    - sudo docker port my-running-app2
+- Mirar information
+    - sudo docker inspect my-running-app2
+- Exec into a container
+    - sudo docker exec -it my-running-app2 sh
+- Stop a container
+    - sudo docker stop my-running-app2
+- Start a container
+    - sudo docker start my-running-app2
+- Remove a container
+    - sudo docker rm my-running-app2
+- Remove a running container
+    - sudo docker rm -f my-running-app2
+- Remove all stopped containers
+    - sudo docker container prune
+- Images 1
+    - sudo docker images
+    - sudo docker tag my_website_image:latest my_website_image:v1.0
+    - sudo docker save my_website_image:v1.0 -o my_website_image.tar
+    - ls -la
+    - sudo docker rmi <<IMAGE_ID>> -f
+    - sudo docker load -i my_website_image.tar
+    - sudo docker images
+- Crear un contenedor
+    - sudo docker run -d -p 8080:80 --name my-running-app2 my_website_image:v1.0
+- Verificar creacion del contenedor
+    - sudo docker ps -a
+- Verificar el sitio web en el navegador
+    - http://localhost:8080
